@@ -1,5 +1,6 @@
-import { version } from "vscode";
+import * as vscode from "vscode";
 import { versionIsAtLeast } from "../util";
+import { isCloudShell, isKnownCloudEditor, isTheia } from "../vscode/cloud_util";
 
 export class VSCodeCapabilities {
     public version: string;
@@ -14,10 +15,10 @@ export class VSCodeCapabilities {
     // Theia doesn't currently support launching without a launch.json. This may need updating to also
     // check the version in future.
     get supportsDebugWithoutLaunchJSON() { return !isTheia; }
-    // Cloud IDEs may have authentication issues trying to use embedded DevTools so just disable it.
-    get supportsEmbeddedDevTools() { return !isKnownCloudIde; }
+    // Cloud editors may have authentication issues trying to use embedded DevTools so just disable it.
+    get supportsEmbeddedDevTools() { return !isKnownCloudEditor; }
     get supportsDevTools() { return !isCloudShell; } // Until DevTools can work without SSE, it will not work on Cloud Shell.
     get editorConfigFolder() { return isTheia ? ".theia" : ".vscode"; }
 }
 
-export const vscodeCapabilities = new VSCodeCapabilities(version);
+export const vscodeCapabilities = new VSCodeCapabilities(vscode.version);

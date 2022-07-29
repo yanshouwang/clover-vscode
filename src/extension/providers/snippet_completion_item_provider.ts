@@ -1,23 +1,21 @@
 import * as path from "path";
-import { CancellationToken, CompletionContext, CompletionItem, CompletionItemKind, CompletionItemProvider, CompletionList, Position, ProviderResult, SnippetString, TextDocument, Uri } from "vscode";
-import { DartCapabilities } from "../capabilities/dart_capabilities";
-import { createMarkdownString, extensionPath, readJSON } from "../util";
+import * as vscode from "vscode";
+import { DartCapabilities } from "../../shared/capabilities/dart";
+import { createMarkdownString, extensionPath, readJSON } from "../../shared/vscode/extension_util";
 
-export class SnippetCompletionItemProvider implements CompletionItemProvider {
-    private completions = new CompletionList();
-    private shouldRender: (uri: Uri) => boolean;
+export class SnippetCompletionItemProvider implements vscode.CompletionItemProvider {
+    private readonly completions = new vscode.CompletionList();
 
-    constructor(private readonly useLSP: boolean, private readonly dartCapabilities: DartCapabilities, fileName: string, shouldRender: (uri: Uri) => boolean) {
-        this.shouldRender = shouldRender;
+    constructor(private readonly useLSP: boolean, private readonly dartCapabilities: DartCapabilities, fileName: string, private readonly verifyUri: (uri: vscode.Uri) => boolean) {
         const file = path.join(extensionPath, fileName);
         const snippets = readJSON(file) as { [key: string]: { prefix: string, description: string | undefined, body: string | string[] } };
         const labels = snippets.keys;
         for (const label in labels) {
             const snippet = snippets[label];
-            const completion = new CompletionItem(label, CompletionItemKind.Snippet);
+            const completion = new vscode.CompletionItem(label, vscode.CompletionItemKind.Snippet);
             completion.filterText = snippet.prefix;
             const value = Array.isArray(snippet.body) ? snippet.body.join("\n") : snippet.body;
-            completion.insertText = new SnippetString(value);
+            completion.insertText = new vscode.SnippetString(value);
             completion.detail = snippet.description;
             completion.documentation = createMarkdownString("").appendCodeblock(completion.insertText.value);
             completion.sortText = "zzzzzzzzzzzzzzzzzzzzzz";
@@ -25,21 +23,21 @@ export class SnippetCompletionItemProvider implements CompletionItemProvider {
         }
     }
 
-    public provideCompletionItems(document: TextDocument, position: Position, token: CancellationToken, context: CompletionContext): ProviderResult<CompletionItem[] | CompletionList<CompletionItem>> {
+    public provideCompletionItems(document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken, context: vscode.CompletionContext): vscode.ProviderResult<vscode.CompletionList<vscode.CompletionItem> | vscode.CompletionItem[]> {
         if (this.dartCapabilities.supportsServerSnippets && this.useLSP) {
             return;
         }
         const line = document.lineAt(position.line).text.slice(0, position.character);
-        if (!this.shouldAllowCompletion(line, context)) {
+        if (!this.verifyLine(line)) {
             return;
         }
-        if (!this.shouldRender(document.uri)) {
+        if (!this.verifyUri(document.uri)) {
             return;
         }
         return this.completions;
     }
 
-    private shouldAllowCompletion(line: string, context: CompletionContext): boolean {
+    private verifyLine(line: string): boolean {
         line = line.trim();
         // Don't provide completions after comment markers. This isn't perfect since it'll
         // suppress them for ex if // appears inside strings, but it's a reasonable

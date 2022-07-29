@@ -20,13 +20,13 @@ export class DartCapabilities {
     get supportsDartCreate() { return versionIsAtLeast(this.version, "2.10.0"); }
     get supportsDebugInternalLibraries() { return versionIsAtLeast(this.version, "2.9.0-a"); }
     get supportsDisableDartDev() { return versionIsAtLeast(this.version, "2.12.0-0"); }
-    get hasDdsTimingFix() { return versionIsAtLeast(this.version, "2.13.0-117"); }
+    get hasDDSTimingFix() { return versionIsAtLeast(this.version, "2.13.0-117"); }
     get hasZeroParamNoTabStopFix() { return versionIsAtLeast(this.version, "2.17.0-117"); }
     get supportsLanguageServerCommand() { return versionIsAtLeast(this.version, "2.14.4"); }
     get supportsNoServeDevTools() { return versionIsAtLeast(this.version, "2.14.0-172.0"); }
     get supportsPubUpgradeMajorVersions() { return versionIsAtLeast(this.version, "2.12.0"); }
     get supportsPubOutdated() { return versionIsAtLeast(this.version, "2.8.0-a"); }
-    get supportsPubDepsJson() { return versionIsAtLeast(this.version, "2.14.0-0"); }
+    get supportsPubDepsJSON() { return versionIsAtLeast(this.version, "2.14.0-0"); }
     get supportsPubAddMultiple() { return versionIsAtLeast(this.version, "2.17.0"); }
     get supportsDartPub() { return versionIsAtLeast(this.version, "2.12.0-0"); }
     get supportsDartRunForPub() { return versionIsAtLeast(this.version, "2.16.0-0"); }
