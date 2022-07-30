@@ -1,8 +1,18 @@
 {
 	"name": "clover",
-	"displayName": "clover",
+	"displayName": "Clover",
 	"description": "Clover extension for VSCode.",
 	"version": "0.0.1",
+	"publisher": "yanshouwang",
+	"homepage": "https://github.com/yanshouwang/clover-vscode",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/yanshouwang/clover-vscode.git"
+	},
+	"license": "SEE LICENSE IN LICENSE",
+	"keywords": [
+		"clover"
+	],
 	"engines": {
 		"vscode": "^1.69.0"
 	},
@@ -13,7 +23,6 @@
 		"onLanguage:dart"
 	],
 	"main": "./out/extension/extension.js",
-	"contributes": {},
 	"scripts": {
 		"vscode:prepublish": "npm run compile",
 		"compile": "tsc -p ./",
@@ -22,16 +31,10 @@
 		"lint": "eslint src --ext ts",
 		"test": "node ./out/test/runTest.js"
 	},
-	"dependencies": {
-		"semver": "^7.3.7",
-		"vscode-languageclient": "^8.0.2",
-		"yaml": "^2.1.1"
-	},
 	"devDependencies": {
 		"@types/glob": "^7.2.0",
 		"@types/mocha": "^9.1.1",
 		"@types/node": "16.x",
-		"@types/semver": "^7.3.10",
 		"@types/vscode": "^1.69.0",
 		"@typescript-eslint/eslint-plugin": "^5.30.0",
 		"@typescript-eslint/parser": "^5.30.0",
