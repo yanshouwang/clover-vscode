@@ -1,9 +1,9 @@
 # Change Log
 
-All notable changes to the "clover" extension will be documented in this file.
+## [0.0.2]
 
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
+- 解决修改 ExtensionId 后无法找到扩展位置的问题
 
-## [Unreleased]
+## [0.0.1]
 
-- Initial release
+- 添加代码片段功能
