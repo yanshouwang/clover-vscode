@@ -3,7 +3,7 @@ import * as path from "path";
 import * as vscode from "vscode";
 
 export const isWin = process.platform.startsWith("win");
-export const extensionPath = vscode.extensions.getExtension("yanshouwang.clover")!.extensionPath;
+export const extensionPath = vscode.extensions.getExtension("yanshouwang.clover-vscode")!.extensionPath;
 
 export function readJSON(file: string): any {
 	return JSON.parse(fs.readFileSync(file).toString());
