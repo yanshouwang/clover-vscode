@@ -1,11 +1,8 @@
-# clover-vscode README
+# Clover extension for VSCode.
 
 ## Features
 
-## Requirements
-
-## Extension Settings
-
-## Known Issues
-
-## Release Notes
+- stlessvm: A snippet for StatelessViewModel
+- stfulvm: A snippet for StatefulViewModel
+- stlessvvm: A snippet for StatelessWidget with StatelessViewModel
+- stfulvvm: A snippet for StatefulWidget with StatefulViewModel
