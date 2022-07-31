@@ -1,12 +1,10 @@
-import * as path from "path";
 import * as vscode from "vscode";
 import * as util from "./util";
 
 export class SnippetCompletionItemProvider implements vscode.CompletionItemProvider {
     private readonly completions = new vscode.CompletionList();
 
-    constructor(fileName: string, private readonly verifyUri: (uri: vscode.Uri) => boolean) {
-        const file = path.join(util.extensionPath, fileName);
+    constructor(file: string, private readonly verifyUri: (uri: vscode.Uri) => boolean) {
         const snippets = util.readJSON(file) as { [key: string]: { prefix: string, description: string | undefined, body: string | string[] } };
         const labels = Object.keys(snippets);
         for (const label of labels) {
