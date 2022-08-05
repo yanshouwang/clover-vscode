@@ -1,4 +1,4 @@
-# Clover extension for VSCode.
+Clover extension for VSCode.
 
 ## Features
 
