@@ -1,15 +1,17 @@
-# Change Log
+## [1.1.0]
+
+- Update snippets.
 
 ## [1.0.0]
 
-- 优化获取扩展安装位置的方式
-- 修改 README.md
-- 添加图标
+- Optimize the method to find extension folder.
+- Update README.md.
+- Add icon.
 
 ## [0.0.2]
 
-- 解决修改 ExtensionId 后无法找到扩展位置的问题
+- Fix the issue of can't find extension folder after modify the extensionId.
 
 ## [0.0.1]
 
-- 添加代码片段功能
+- Add snippets.

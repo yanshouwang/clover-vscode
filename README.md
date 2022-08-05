@@ -1,8 +1,8 @@
-# Clover extension for VSCode.
+Clover extension for VSCode.
 
 ## Features
 
 - stlessvm: A snippet for StatelessViewModel
 - stfulvm: A snippet for StatefulViewModel
-- stlessvvm: A snippet for StatelessWidget with StatelessViewModel
-- stfulvvm: A snippet for StatefulWidget with StatefulViewModel
+- stlessv: A snippet for StatelessView
+- stfulv: A snippet for StatefulView
