@@ -23,17 +23,15 @@
             "}"
         ]
     },
-    "Flutter Stateless Widget with ViewMdoelProvider": {
-        "prefix": "stlessvvm",
-        "description": "Insert a StatelessWidget with a StatelessViewModelProvider",
+    "Flutter Stateless View": {
+        "prefix": "stlessv",
+        "description": "Insert a StatelessView",
         "body": [
-            "class $1View extends StatelessWidget with StatelessViewModelProvider<$1ViewModel> {",
-            "  $1View({ Key? key }) : super(key: key);",
-            "",
-            "  @override",
-            "  $1ViewModel createViewModel() {",
-            "    return $1ViewModel();",
-            "  }",
+            "class $1View extends StatelessView<$1ViewModel> {",
+            "  $1View({",
+            "    Key? key,",
+            "    required ViewModelBuilder<$1ViewModel> builder,",
+            "  }) : super(key: key, builder: builder);",
             "",
             "  @override",
             "  Widget build(BuildContext context) {",
@@ -44,23 +42,21 @@
             "}"
         ]
     },
-    "Flutter Stateful Widget with ViewModelProvider": {
-        "prefix": "stfulvvm",
-        "description": "Insert a StatefulWidget with a StatefulViewModelProvider",
+    "Flutter Stateful View": {
+        "prefix": "stfulv",
+        "description": "Insert a StatefulView",
         "body": [
-            "class $1View extends StatefulWidget {",
-            "  const $1View({ Key? key }) : super(key: key);",
+            "class $1View extends StatefulView<$1ViewModel> {",
+            "  const $1View({",
+            "    Key? key,",
+            "    required ViewModelBuilder<$1ViewModel> builder,",
+            "  }) : super(key: key, builder: builder);",
             "",
             "  @override",
-            "  State<$1View> createState() => _$1ViewState();",
+            "  ViewModelState<$1View, $1ViewModel> createState() => _$1ViewState();",
             "}",
             "",
-            "class _$1ViewState extends State<$1View> with StatefulViewModelProvider<$1View, $1ViewModel> {",
-            "  @override",
-            "  $1ViewModel createViewModel() {",
-            "    return $1ViewModel();",
-            "  }",
-            "",
+            "class _$1ViewState extends ViewModelState<$1View, $1ViewModel> {",
             "  @override",
             "  Widget build(BuildContext context) {",
             "    return Container(",
