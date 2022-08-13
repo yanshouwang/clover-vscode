@@ -26,11 +26,11 @@
 		"languages": [
 			{
 				"id": "json",
+				"aliases": [
+					"JSON"
+				],
 				"extensions": [
 					".arb"
-				],
-				"aliases": [
-					"ARB"
 				]
 			}
 		]
