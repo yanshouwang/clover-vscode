@@ -2,7 +2,7 @@
 	"name": "clover-vscode",
 	"displayName": "Clover",
 	"description": "Clover extension for VSCode.",
-	"version": "1.1.0",
+	"version": "1.2.0",
 	"publisher": "yanshouwang",
 	"homepage": "https://github.com/yanshouwang/clover-vscode",
 	"repository": {
@@ -12,14 +12,29 @@
 	"icon": "images/clover.png",
 	"license": "SEE LICENSE IN LICENSE",
 	"keywords": [
-		"clover"
+		"clover",
+		"flutter"
 	],
 	"engines": {
 		"vscode": "^1.69.0"
 	},
 	"categories": [
+		"Programming Languages",
 		"Snippets"
 	],
+	"contributes": {
+		"languages": [
+			{
+				"id": "json",
+				"extensions": [
+					".arb"
+				],
+				"aliases": [
+					"ARB"
+				]
+			}
+		]
+	},
 	"activationEvents": [
 		"onLanguage:dart"
 	],
