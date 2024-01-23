@@ -1,3 +1,7 @@
+## [2.0.0]
+
+- Update snippets.
+
 ## [1.2.0]
 
 - Add .arb file associations to JSON.

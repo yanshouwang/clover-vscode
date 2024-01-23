@@ -2,7 +2,7 @@
 	"name": "clover-vscode",
 	"displayName": "Clover",
 	"description": "Clover extension for VSCode.",
-	"version": "1.2.0",
+	"version": "2.0.0",
 	"publisher": "yanshouwang",
 	"homepage": "https://github.com/yanshouwang/clover-vscode",
 	"repository": {
@@ -12,8 +12,9 @@
 	"icon": "images/clover.png",
 	"license": "SEE LICENSE IN LICENSE",
 	"keywords": [
+		"flutter",
 		"clover",
-		"flutter"
+		"mvvm"
 	],
 	"engines": {
 		"vscode": "^1.69.0"
