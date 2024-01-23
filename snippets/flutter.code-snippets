@@ -1,69 +1,28 @@
 {
-    "Flutter Stateless ViewModel": {
-        "prefix": "stlessvm",
-        "description": "Insert a StatelessViewModel",
+    "Clover View and ViewModel": {
+        "prefix": "cvvm",
+        "description": "Insert Clover View and ViewModel",
         "body": [
-            "abstract class $1ViewModel extends StatelessViewModel {",
-            "  factory $1ViewModel() => _$1ViewModel();",
+            "import 'package:clover/clover.dart';",
+            "import 'package:flutter/widgets.dart' hide View;",
+            "",
+            "class $1View extends View<$1ViewModel> {",
+            "  const $1View({super.key});",
+            "",
+            "  @override",
+            "  ViewState<$1View, $1ViewModel> createState() => _$1ViewState();",
+            "  @override",
+            "  $1ViewModel createViewModel() => $1ViewModel();",
             "}",
             "",
-            "class _$1ViewModel extends StatelessViewModel implements $1ViewModel {",
-            "}"
-        ]
-    },
-    "Flutter Stateful ViewModel": {
-        "prefix": "stfulvm",
-        "description": "Insert a StatefulViewModel",
-        "body": [
-            "abstract class $1ViewModel extends StatefulViewModel {",
-            "  factory $1ViewModel() => _$1ViewModel();",
-            "}",
-            "",
-            "class _$1ViewModel extends StatefulViewModel implements $1ViewModel {",
-            "}"
-        ]
-    },
-    "Flutter Stateless View": {
-        "prefix": "stlessv",
-        "description": "Insert a StatelessView",
-        "body": [
-            "class $1View extends StatelessView<$1ViewModel> {",
-            "  $1View({",
-            "    Key? key,",
-            "    required ViewModelBuilder<$1ViewModel> builder,",
-            "  }) : super(key: key, builder: builder);",
-            "",
+            "class _$1ViewState extends ViewState<$1View, $1ViewModel> {",
             "  @override",
             "  Widget build(BuildContext context) {",
-            "    return Container(",
-            "      $2",
-            "    );",
+            "    return const Placeholder();",
             "  }",
-            "}"
-        ]
-    },
-    "Flutter Stateful View": {
-        "prefix": "stfulv",
-        "description": "Insert a StatefulView",
-        "body": [
-            "class $1View extends StatefulView<$1ViewModel> {",
-            "  const $1View({",
-            "    Key? key,",
-            "    required ViewModelBuilder<$1ViewModel> builder,",
-            "  }) : super(key: key, builder: builder);",
-            "",
-            "  @override",
-            "  ViewModelState<$1View, $1ViewModel> createState() => _$1ViewState();",
             "}",
             "",
-            "class _$1ViewState extends ViewModelState<$1View, $1ViewModel> {",
-            "  @override",
-            "  Widget build(BuildContext context) {",
-            "    return Container(",
-            "      $2",
-            "    );",
-            "  }",
-            "}"
+            "class $1ViewModel extends ViewModel {}"
         ]
     }
 }
